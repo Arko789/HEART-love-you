@@ -1,11 +1,8 @@
 """
 heart.py - text geometry for the Love Heart page.
 
-Computes where every phrase sits inside the heart (rows, spans, sizes,
-colours, spawn order) and writes it to layout.js.
-index.html loads layout.js + music.mp3 and plays the animation.
-
-Run:  python heart.py
+Computes where every phrase sits inside the heart and writes it to layout.js.
+Ensures "Subhani" is placed last in the array so it renders at the end.
 """
 import json
 import math as m
@@ -25,7 +22,8 @@ PHRASES = [
     "Kocham cię", "ฉันรักเธอ", "Anh yêu em", "Aku cinta kamu", "Я тебе кохаю",
 ]
 
-# ---- text measuring: real Tk fonts if available, else an estimate ----
+STATIC_CENTER_TEXT = "Subhani"
+
 _tk = None
 try:
     import tkinter as tk
@@ -58,7 +56,6 @@ def linespace(px):
     return _font(px).metrics("linespace") if _tk else px * 1.2
 
 
-# ---- heart geometry ----
 def heart(a):
     x = 16 * (m.sin(a) ** 3)
     y = 13 * m.cos(a) - 5 * m.cos(2 * a) - 2 * m.cos(3 * a) - m.cos(4 * a)
@@ -117,6 +114,11 @@ def make_layout(font_scale, seed=11):
 
     y = YMAX - half
     while y > YMIN + half:
+        # Leave a clearance zone for the center text
+        if abs(y - CY) < row_h * 0.8:
+            y -= row_h
+            continue
+
         for lo, hi in intersect(spans(y + half), spans(y - half)):
             lo += 4
             hi -= 4
@@ -163,18 +165,31 @@ def make_layout(font_scale, seed=11):
     edges.sort(key=lambda p: m.atan2(p["x"], p["y"] - CY) % (2 * m.pi))
     inner.sort(key=lambda p: -p["rad"] + rng.uniform(0, 0.08))
 
+    ordered_items = edges + inner
+
+    # Center text appended at the absolute end of the array
+    center_size = max(sizes) * 1.8
+    ordered_items.append(dict(
+        x=0.0,
+        y=CY,
+        text=STATIC_CENTER_TEXT,
+        size=center_size,
+        color=[1.0, 0.85, 0.90],
+        dx=0.0,
+        is_center=True
+    ))
+
     return [dict(x=round(p["x"], 1), y=round(p["y"], 1), t=p["text"],
-                 s=p["size"], c=p["color"], dx=p["dx"]) for p in edges + inner]
+                 s=p["size"], c=p["color"], dx=p["dx"],
+                 is_center=p.get("is_center", False)) for p in ordered_items]
 
 
 if __name__ == "__main__":
     data = {
         "cy": round(CY, 1),
-        "wide": make_layout(1.0),      # desktop / landscape
-        "narrow": make_layout(1.4),    # phones / portrait (bigger text)
+        "wide": make_layout(1.0),
+        "narrow": make_layout(1.4),
     }
     with open("layout.js", "w", encoding="utf-8") as f:
         f.write("const LAYOUTS = " + json.dumps(data, ensure_ascii=False) + ";\n")
-    print("layout.js written:", len(data["wide"]), "words (wide),",
-          len(data["narrow"]), "words (narrow)",
-          "| measured with", "Tk" if _tk else "estimate")
+    print("layout.js updated: 'Subhani' will appear at the end of the animation sequence!")
