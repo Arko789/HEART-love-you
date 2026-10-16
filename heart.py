@@ -21,8 +21,8 @@ PHRASES = [
     "I love you", "Seni seviyorum", "Te amo", "Je t'aime",
     "Ich liebe dich", "Ti amo", "Eu te amo", "Я тебя люблю",
     "사랑해", "愛してる", "我爱你", "मैं तुमसे प्यार करता हूँ",
-    "Σ' αγαπώ", "Ik hou van jou", "Jag älskar dig", "Kocham cię",
-    "ฉันรักเธอ", "Anh yêu em", "Aku cinta kamu", "Я тебе кохаю",
+    "আমি তোমাকে ভালোবাসি", "Σ' αγαπώ", "Ik hou van jou", "Jag älskar dig",
+    "Kocham cię", "ฉันรักเธอ", "Anh yêu em", "Aku cinta kamu", "Я тебе кохаю",
 ]
 
 # ---- text measuring: real Tk fonts if available, else an estimate ----
