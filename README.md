@@ -1,132 +1,171 @@
 <div align="center">
 
-# ❤️ Love Heart
+# ❤️ HEART — Love You
 
-### *"I love you" in 20 languages, writing itself into a heart.*
+### _One heart. Twenty-one languages. One person._
 
-![Python](https://img.shields.io/badge/python-3.8+-ff4d6d?style=for-the-badge&logo=python&logoColor=white)
-![JavaScript](https://img.shields.io/badge/vanilla-JS-98001a?style=for-the-badge&logo=javascript&logoColor=white)
-![Dependencies](https://img.shields.io/badge/dependencies-zero-e60d24?style=for-the-badge)
-![Made with](https://img.shields.io/badge/made%20with-love-fa1a29?style=for-the-badge)
+**Dedicated to Subhani ❤️**
 
-*A tiny romantic web gift: tap, music starts, and hundreds of words of love fall into place to form a glowing heart.*
+_A little digital expression of love, created for someone special. Every word, every color, and every beat comes together to form one heart — a reminder that even when words differ across languages, love can carry the same feeling._
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![Made with Love](https://img.shields.io/badge/Made_with-❤️-ff4d6d?style=for-the-badge)
 
 </div>
 
 ---
 
-## ✨ What is this?
+## 💌 A Little Note for Subhani
 
-You open the link. A heart beats on a dark screen. You tap it.
+Some feelings are too big to fit into a single sentence, so this project expresses one in twenty-one languages.
 
-The music starts, and word by word, in 20 languages, the words *"I love you"* drift into place until they fill a heart shape in wine, crimson and blood-red. When it's done, the heart keeps shimmering.
+**Subhani, this little heart is for you. ❤️**
 
-No frameworks. No build step. No server. Just a Python script, a JavaScript file, a page and a song.
+Every word that appears is part of one bigger message: no matter how many languages the world speaks, some feelings need no translation.
 
----
+This project is a small digital keepsake made with code, music, creativity, and love — a reminder that the simplest message can mean the most when it comes from the heart.
 
-## 🗂️ The files, and what each one does
-
-```
-love/
-├── 🐍 heart.py      →  the brain: does the geometry
-├── 📜 layout.js     →  the blueprint: where every word goes
-├── 🌐 index.html    →  the stage: draws and animates it all
-└── 🎵 music.mp3     →  the soundtrack
-```
-
-| File | Job | Edit it when… |
-|---|---|---|
-| **`heart.py`** | Builds the heart curve, slices it into rows, and fits phrases into each row. Picks every word's position, size and color, and decides the order they appear in. Writes the result to `layout.js`. | You want different words, colors, or heart size. |
-| **`layout.js`** | Auto-generated data file holding two ready-made layouts: `wide` for desktop and `narrow` for phones. | Never by hand. Re-run `heart.py` instead. |
-| **`index.html`** | Loads the layout and the music. Shows the "TAP TO OPEN" screen, starts the audio, then animates each word floating up, fading in and flashing. Adds the shimmer afterwards. | You want to change the look or animation timing. |
-| **`music.mp3`** | The song that plays (and loops) when she taps. | You want a different song. Keep the same filename. |
+_One heart. Countless words. One special person._
 
 ---
 
-## ⚙️ How it works
+## 🌍 "I Love You" in 21 Languages
 
-```
- heart.py                    layout.js                   index.html
-┌──────────────┐  writes   ┌─────────────┐   loaded by  ┌──────────────────┐
-│ heart curve  │ ───────▶  │ word        │ ───────────▶ │ canvas animation │
-│ + row slicing│           │ positions,  │              │ + music.mp3      │
-│ + word fitting│          │ sizes,      │              │ + tap-to-start   │
-│ + colors     │           │ colors      │              └──────────────────┘
-└──────────────┘           └─────────────┘
-```
+The heart brings together expressions of love from around the world.
 
-**1. The heart.** `heart.py` uses the classic parametric heart curve:
+| No. | Language           | "I Love You"             |
+| --: | ------------------ | ------------------------ |
+|   1 | 🇬🇧 English         | I love you               |
+|   2 | 🇹🇷 Turkish         | Seni seviyorum           |
+|   3 | 🇪🇸 Spanish         | Te amo                   |
+|   4 | 🇫🇷 French          | Je t’aime                |
+|   5 | 🇩🇪 German          | Ich liebe dich           |
+|   6 | 🇮🇹 Italian         | Ti amo                   |
+|   7 | 🇵🇹 Portuguese      | Eu te amo                |
+|   8 | 🇷🇺 Russian         | Я тебя люблю             |
+|   9 | 🇰🇷 Korean          | 사랑해                   |
+|  10 | 🇯🇵 Japanese        | 愛してる                 |
+|  11 | 🇨🇳 Chinese         | 我爱你                   |
+|  12 | 🇮🇳 Hindi           | मैं तुमसे प्यार करता हूँ |
+|  13 | 🇮🇳 Bengali (বাংলা) | আমি তোমাকে ভালোবাসি      |
+|  14 | 🇬🇷 Greek           | Σ’ αγαπώ                 |
+|  15 | 🇳🇱 Dutch           | Ik hou van jou           |
+|  16 | 🇸🇪 Swedish         | Jag älskar dig           |
+|  17 | 🇵🇱 Polish          | Kocham cię               |
+|  18 | 🇹🇭 Thai            | ฉันรักคุณ                |
+|  19 | 🇻🇳 Vietnamese      | Anh yêu em               |
+|  20 | 🇮🇩 Indonesian      | Aku cinta kamu           |
+|  21 | 🇺🇦 Ukrainian       | Я тебе кохаю             |
 
-```
-x = 16·sin³(t)
-y = 13·cos(t) − 5·cos(2t) − 2·cos(3t) − cos(4t)
-```
-
-**2. The rows.** The heart is cut into horizontal strips. For each strip, the script finds the left and right edges of the shape, which is where words may go.
-
-**3. The words.** Phrases are shuffled and packed left to right into each strip, then spaced out evenly so every line is flush with the heart's edge. Words on the outline are tinted brighter, and words near the center are deeper wine red.
-
-**4. The order.** The outline is "drawn" first, going around the heart. Then the inside fills from the center outward.
-
-**5. The stage.** `index.html` takes that blueprint and animates each word: it lifts up from below, fades in with a soft glow and shadow, and gives a brief pink flash as it lands. When everything has landed, random words sparkle forever.
-
-**6. Why the tap?** Browsers block audio that starts by itself. The "TAP TO OPEN" screen is the one tap that lets the music play with sound.
-
----
-
-## 🚀 Run it
-
-**Just see it:** double-click `index.html`. That's it. No server needed.
-
-**Change the words or colors:**
-
-```bash
-# 1. edit PHRASES (or colors) in heart.py
-# 2. regenerate the blueprint
-python heart.py
-# 3. refresh index.html
-```
-
-**Send it to someone** (a link they can open on their phone):
-
-1. Keep all four files together in the folder.
-2. Drag the folder onto [Netlify Drop](https://app.netlify.com/drop), or push it to GitHub and turn on **GitHub Pages**.
-3. Send the link. 💌
-
-> ⚠️ All four files must be uploaded together. `index.html` loads `layout.js` and `music.mp3` by name.
+_Translations can vary depending on context and the speaker._
 
 ---
 
-## 🎛️ Make it yours
+## 💖 About the Project
 
-| Want to change… | Where |
-|---|---|
-| The languages / words (add her name!) | `PHRASES` list in `heart.py` |
-| Heart size | `SC` in `heart.py` |
-| Word colors | `wine`, `crimson`, `blood` in `heart.py` |
-| Text size on phones | the `make_layout(1.4)` call at the bottom of `heart.py` |
-| How long the build-up takes | `DURATION` in `index.html` |
-| The song | replace `music.mp3` |
+**HEART — Love You** is a romantic, interactive web experience that transforms multilingual expressions of love into a glowing, animated heart.
+
+Created as a personal digital gift for Subhani, the project combines a heart-shaped text layout, progressive word animations, visual effects, and background music to turn a simple web page into a memorable experience.
+
+### ✨ Features
+
+- ❤️ **Heart-shaped typography** — expressions of love arranged into a heart.
+- 🌍 **Multilingual expressions** — love expressed across different languages.
+- 🎨 **Progressive text animation** — words appear gradually to form the design.
+- ✨ **Glowing visual effects** — shimmer, colors, and highlights bring the heart to life.
+- 🎵 **Background music** — soundtrack playback begins following user interaction.
+- 📱 **Responsive experience** — layouts designed for desktop and mobile screens.
+- 💝 **Personal dedication** — a project made especially for Subhani.
+
+---
+
+## 🛠️ Technologies Used
+
+| Technology  | Purpose                                               |
+| ----------- | ----------------------------------------------------- |
+| Python      | Generates the heart geometry and text layout.         |
+| JavaScript  | Handles the animation, rendering, and audio controls. |
+| HTML5       | Provides the structure of the web page.               |
+| CSS         | Styles the interface and opening screen.              |
+| HTML Canvas | Renders the animated heart and its text.              |
+| MP3 audio   | Provides the background soundtrack.                   |
 
 ---
 
-## 🌍 Languages inside the heart
+## 📂 Project Structure
 
-English · Turkish · Spanish · French · German · Italian · Portuguese · Russian · Korean · Japanese · Chinese · Hindi · Greek · Dutch · Swedish · Polish · Thai · Vietnamese · Indonesian · Ukrainian
+```text
+HEART-love-you/
+├── index.html    # Main web page and animation logic
+├── layout.js     # Generated heart layout and word positions
+├── music.mp3     # Background soundtrack
+└── README.md     # Project documentation
+```
+
+The Python generator used to create the layout should also be kept in the repository if you want others to regenerate or modify the heart geometry. Update the file tree to include its actual filename.
 
 ---
 
-## 📝 Notes
+## 🚀 How to Run
 
-- `heart.py` measures text with Tkinter fonts when available, so words fit tightly. Without Tkinter it falls back to an estimate, which still looks good.
-- The layout is seeded (`seed=11`), so the heart looks the same every time you generate it. Change the seed for a different arrangement.
-- Works on modern desktop and mobile browsers, and no internet is needed once the files are loaded.
+### Run Locally
+
+1. Download or clone the repository.
+2. Keep the required web files together in the same directory.
+3. Open `index.html` in a modern browser.
+4. Tap the opening screen to start the experience and music.
+
+### Host Online
+
+You can publish the project using GitHub Pages or another static website host.
+
+1. Push the project files to your GitHub repository.
+2. Enable GitHub Pages for the appropriate branch and directory.
+3. Open the published website on desktop or mobile.
+
+**Important:** Keep `layout.js` and `music.mp3` available at the paths expected by `index.html`.
 
 ---
+
+## ⚙️ How It Works
+
+1. **Generate the layout:** Python calculates the heart shape and arranges words within it.
+2. **Load the data:** JavaScript loads the generated layout into the web page.
+3. **Draw the heart:** HTML Canvas renders the words in their assigned positions.
+4. **Animate the words:** The text gradually appears until the heart is formed.
+5. **Play the music:** A user interaction initiates audio playback, subject to browser restrictions.
+6. **Keep it alive:** Visual effects add shimmer and glow to the finished heart.
+
+---
+
+## 🎨 Customization
+
+You can personalize the experience by modifying the relevant source files.
+
+| To change             | Where to look                                |
+| --------------------- | -------------------------------------------- |
+| Languages and phrases | The phrase list in the Python generator      |
+| Heart geometry        | The heart-curve and layout calculations      |
+| Animation speed       | The timing settings in the JavaScript        |
+| Colors and glow       | The rendering and styling settings           |
+| Background soundtrack | `music.mp3` and its corresponding audio path |
+
+Regenerate the layout whenever you modify the Python generator so that the web page receives the updated positions.
+
+---
+
+## ❤️ Why This Project Exists
+
+Not every gift needs to be expensive or tangible. Sometimes, a little creativity and a few lines of code can make something meaningful.
+
+This project brings programming, music, typography, and a personal message together in one small experience — made for Subhani.
 
 <div align="center">
 
-*Made with ❤️ for someone who deserves every language.*
+### For Subhani, with love. ❤️
+
+_Written in code. Expressed in twenty-one languages. Made from the heart._
 
 </div>
